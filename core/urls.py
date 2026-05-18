@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core_loja import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    # Rota da Dashboard da Loja
+    path('loja/<int:empresa_id>/', views.dashboard_loja, name='url_da_loja'),
+    
+    # Rotas de Cadastro (passando o parâmetro 'tipo' via dicionário)
+    path('loja/<int:empresa_id>/novo-cliente/', views.cadastrar_item, {'tipo': 'cliente'}, name='novo_cliente'),
+    path('loja/<int:empresa_id>/novo-produto/', views.cadastrar_item, {'tipo': 'produto'}, name='novo_produto'),
 ]
