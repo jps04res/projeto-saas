@@ -18,3 +18,28 @@
     </tbody>
 </table>
 {% endblock %}
+{% extends 'base.html' %}  {% block content %}        <h2>Produtos da Empresa: {{ empresa.nome }}</h2>
+    <div class="row">
+        {% for produto in produtos %}
+            <div class="card">
+                <p>{{ produto.nome }} - R$ {{ produto.preco }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}             ```
+
+---
+
+### 3. No arquivo `settings.py` (Configuração Vital)
+O Django precisa saber que a pasta `templates` dentro de `core_loja` deve ser usada.
+
+**Local:** `core/settings.py`
+
+Procure a lista `INSTALLED_APPS` e verifique se a sua pasta está lá:
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    # ... outras padrão ...
+    'core_loja',  
+]

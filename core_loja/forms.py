@@ -4,11 +4,7 @@ from .models import Cliente, Produto
 class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
-        # Não incluímos 'empresa' (segurança) nem 'data_cadastro' (automático)
-        fields = [
-            'nome', 'cpf', 'email', 'telefone', 
-            'data_nascimento', 'endereco', 'cidade', 'cep'
-        ]
+        fields = ['nome', 'cpf', 'email', 'telefone', 'data_nascimento', 'endereco', 'cidade', 'cep']
         widgets = {
             'nome': forms.TextInput(attrs={'class': 'form-control'}),
             'data_nascimento': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
@@ -23,3 +19,4 @@ class ProdutoForm(forms.ModelForm):
             'nome': forms.TextInput(attrs={'class': 'form-control'}),
             'preco': forms.NumberInput(attrs={'class': 'form-control'}),
         }
+        
