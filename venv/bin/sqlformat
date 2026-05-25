@@ -1,4 +1,6 @@
-#!/home/info3/projeto-saas/venv/bin/python3
+#!/bin/sh
+'''exec' "/home/info3/Área de trabalho/projeto-saas/venv/bin/python3" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys
